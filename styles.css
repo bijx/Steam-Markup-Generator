@@ -50,3 +50,8 @@ textarea {
   background-color: #444;
   margin-top: 10px;
 }
+
+h1 {
+  font-weight: 400;
+  color: #5aa9d6;
+}
