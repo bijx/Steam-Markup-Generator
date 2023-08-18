@@ -65,6 +65,7 @@ header {
 }
 
 .buttons button {
+  position: relative;
   margin-right: 4px;
   background-color: #555;
   border: none;
@@ -72,6 +73,26 @@ header {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 0.8em;
+  white-space: nowrap;  /* to prevent the tooltip from breaking into multiple lines */
+  z-index: 1;
+}
+
+.buttons button:hover .tooltip {
+  display: block;
 }
 
 textarea {
