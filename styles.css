@@ -215,3 +215,44 @@ h1 {
   text-decoration: none;
   cursor: pointer;
 }
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: gray;
+  font-size: 12px;
+  letter-spacing: 2px;
+  width: 100%;
+  position: fixed; 
+  bottom: 0;      
+  left: 0; 
+  background: #1a1a1a;
+}
+
+.ribbon {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 150px;
+  padding: 8px 0;
+  background-color: #5aa9d6;
+  background-image: linear-gradient(to bottom right, #5aa9d6, #3a88c4, #5aa9d6);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font: 700 11px/1 'Motiva Sans', sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  text-align: center;
+  left: 0px;
+  top: 30px;
+  transform: rotate(45deg);
+}
