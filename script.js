@@ -43,3 +43,57 @@ buttons.forEach((button) => {
     editor.dispatchEvent(new Event('input'));
   });
 });
+
+editor.addEventListener('keydown', function (e) {
+  if (e.ctrlKey) {
+    // Check if the Control key is pressed
+    let tag = '';
+
+    switch (e.key) {
+      case 'b':
+      case 'B':
+        tag = 'b';
+        break;
+      case 'i':
+      case 'I':
+        tag = 'i';
+        break;
+      case 'u':
+      case 'U':
+        tag = 'u';
+        break;
+    }
+
+    if (e.shiftKey) {
+      // Check if the Shift key is pressed along with Control key
+      switch (e.key) {
+        case 'X':
+          tag = 'strike';
+          break;
+        case 'H':
+          tag = 'h1';
+          break;
+      }
+    }
+
+    if (tag) {
+      const startTag = `[${tag}]`;
+      const endTag = tag !== 'hr' ? `[/${tag}]` : ''; // No end tag for [hr]
+
+      const selectionStart = editor.selectionStart;
+      const selectionEnd = editor.selectionEnd;
+
+      editor.setRangeText(
+        startTag +
+          editor.value.substring(selectionStart, selectionEnd) +
+          endTag,
+        selectionStart,
+        selectionEnd,
+        'select'
+      );
+
+      editor.dispatchEvent(new Event('input'));
+      e.preventDefault(); // To prevent any default action for the key combination
+    }
+  }
+});
