@@ -5,6 +5,7 @@ const buttons = document.querySelectorAll('.buttons button');
 editor.addEventListener('input', function () {
   let content = editor.value;
 
+  content = content.replace(/\n/g, '<br>');
   content = content.replace(/\[h1\](.*?)\[\/h1\]/g, '<h1>$1</h1>');
   content = content.replace(/\[b\](.*?)\[\/b\]/g, '<b>$1</b>');
   content = content.replace(/\[u\](.*?)\[\/u\]/g, '<u>$1</u>');
