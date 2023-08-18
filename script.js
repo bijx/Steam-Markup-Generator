@@ -18,7 +18,7 @@ editor.addEventListener('input', function () {
     '<span style="background-color: black; color: black;" onclick="this.style.color=\'white\'">$1</span>'
   );
   content = content.replace(/\[noparse\](.*?)\[\/noparse\]/g, '<pre>$1</pre>');
-  content = content.replace(/\[hr\]\[\/hr\]/g, '<hr>');
+  content = content.replace(/\[hr\]/g, '<hr>');
   content = content.replace(/\[code\](.*?)\[\/code\]/g, '<code>$1</code>');
 
   preview.innerHTML = content;
