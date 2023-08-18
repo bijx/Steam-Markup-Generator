@@ -16,10 +16,23 @@ body {
   background-color: #333;
 }
 
+/* ... existing styles ... */
+
 header {
   text-align: center;
   font-size: 2em;
+  display: flex;            /* Flexbox enabled */
+  align-items: center;      /* Center items vertically */
+  justify-content: center;  /* Center items horizontally */
+  gap: 10px;                /* Space between logo and text */
+  padding-bottom: 24px;
 }
+
+.header-logo {
+  height: 40px;  /* Adjust this depending on the desired logo size */
+  width: auto;
+}
+
 
 
 .buttons button {
