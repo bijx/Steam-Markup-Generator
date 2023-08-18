@@ -202,3 +202,16 @@ h1 {
 .quote-author i {
   font-size: 0.8em;
 }
+
+.modal-close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover, .modal-close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
