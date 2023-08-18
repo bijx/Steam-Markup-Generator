@@ -14,9 +14,10 @@ body {
   border-radius: 15px;
   padding: 20px;
   background-color: #333;
+  border-style: solid;
+  border-color: #5e5e5e;
+  border-width: 1px;
 }
-
-/* ... existing styles ... */
 
 header {
   text-align: center;
@@ -57,6 +58,30 @@ textarea {
   font-size: 1em;
   resize: none;
 }
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); 
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+textarea::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1); 
+  border-radius: 5px; 
+}
+
+/* Styling the scrollbar for Firefox */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
 
 
 #preview {
