@@ -46,6 +46,7 @@ header {
 }
 
 textarea {
+  box-sizing: border-box;  /* Add this property */
   width: 100%;
   height: 200px;
   border: none;
@@ -56,6 +57,7 @@ textarea {
   font-size: 1em;
   resize: none;
 }
+
 
 #preview {
   padding: 15px;
