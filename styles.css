@@ -48,15 +48,15 @@ body {
 header {
   text-align: center;
   font-size: 2em;
-  display: flex;            /* Flexbox enabled */
-  align-items: center;      /* Center items vertically */
-  justify-content: center;  /* Center items horizontally */
-  gap: 10px;                /* Space between logo and text */
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  gap: 10px;
   padding-bottom: 24px;
 }
 
 .header-logo {
-  height: 40px;  /* Adjust this depending on the desired logo size */
+  height: 40px;  
   width: auto;
 }
 
@@ -96,7 +96,7 @@ header {
 }
 
 textarea {
-  box-sizing: border-box;  /* Add this property */
+  box-sizing: border-box;
   width: 100%;
   height: 200px;
   border: none;
@@ -131,8 +131,6 @@ textarea {
   scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
 }
 
-
-
 #preview {
   padding: 15px;
   border-radius: 10px;
@@ -143,4 +141,64 @@ textarea {
 h1 {
   font-weight: 400;
   color: #5aa9d6;
+}
+
+.quote-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
+
+.quote-content {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#author, #quoteText {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+#quoteText {
+  height: 100px;
+  resize: none;
+}
+
+#insertQuote {
+  background-color: #555;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quote-box {
+  border: 1px solid #5aa9d6;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.quote-author {
+  margin-bottom: 10px;
+}
+
+.quote-author i {
+  font-size: 0.8em;
 }

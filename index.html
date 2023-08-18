@@ -24,6 +24,7 @@
             <button data-tag="noparse">Noparse</button>
             <button data-tag="hr">HR</button>
             <button data-tag="code">Code</button>
+            <button data-tag="quote">Quote</button>
         </div>
         
         <textarea id="editor"></textarea>
@@ -31,6 +32,18 @@
         <div id="preview"></div>
     </div>
     
+    <div class="quote-modal" id="quoteModal">
+        <div class="quote-content">
+            <label for="author">Author:</label>
+            <input type="text" id="author" placeholder="Enter author name">
+    
+            <label for="quoteText">Quote:</label>
+            <textarea id="quoteText" placeholder="Enter the text you want to quote"></textarea>
+    
+            <button id="insertQuote">Insert</button>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
-</body>
+    </body>
 </html>

@@ -2,7 +2,7 @@ const editor = document.getElementById('editor');
 const preview = document.getElementById('preview');
 const buttons = document.querySelectorAll('.buttons button');
 
-editor.addEventListener('input', function () {
+function updatePreview() {
   let content = editor.value;
 
   content = content.replace(/\n/g, '<br>');
@@ -21,13 +21,30 @@ editor.addEventListener('input', function () {
   content = content.replace(/\[noparse\](.*?)\[\/noparse\]/g, '<pre>$1</pre>');
   content = content.replace(/\[hr\]/g, '<hr>');
   content = content.replace(/\[code\](.*?)\[\/code\]/g, '<code>$1</code>');
+  content = content.replace(
+    /\[quote=(.*?)\](.*?)\[\/quote\]/g,
+    '<div class="quote-box"><p class="quote-author">Originally posted by <i>$1</i>:</p><p>$2</p></div>'
+  );
 
   preview.innerHTML = content;
-});
+}
+
+editor.addEventListener('input', updatePreview);
 
 buttons.forEach((button) => {
   button.addEventListener('click', function () {
     const tag = this.getAttribute('data-tag');
+
+    if (tag === 'quote') {
+      const selectedText = editor.value.substring(
+        editor.selectionStart,
+        editor.selectionEnd
+      );
+      document.getElementById('quoteText').value = selectedText;
+      document.getElementById('quoteModal').style.display = 'flex';
+      return;
+    }
+
     let startTag = `[${tag}]`;
     let endTag = tag !== 'hr' ? `[/${tag}]` : ''; // No end tag for [hr]
 
@@ -41,8 +58,22 @@ buttons.forEach((button) => {
       'select'
     );
 
-    editor.dispatchEvent(new Event('input'));
+    updatePreview();
   });
+});
+
+document.getElementById('insertQuote').addEventListener('click', function () {
+  const author = document.getElementById('author').value;
+  const quote = document.getElementById('quoteText').value;
+  const insertion = `[quote=${author}] ${quote} [/quote]`;
+  const beforeSelection = editor.value.substring(0, editor.selectionStart);
+  const afterSelection = editor.value.substring(
+    editor.selectionEnd,
+    editor.value.length
+  );
+  editor.value = beforeSelection + insertion + afterSelection;
+  document.getElementById('quoteModal').style.display = 'none';
+  updatePreview();
 });
 
 editor.addEventListener('keydown', function (e) {
@@ -93,7 +124,7 @@ editor.addEventListener('keydown', function (e) {
         'select'
       );
 
-      editor.dispatchEvent(new Event('input'));
+      updatePreview();
       e.preventDefault(); // To prevent any default action for the key combination
     }
   }
