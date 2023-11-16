@@ -7,6 +7,8 @@ function updatePreview() {
 
   content = content.replace(/\n/g, '<br>');
   content = content.replace(/\[h1\](.*?)\[\/h1\]/g, '<h1>$1</h1>');
+  content = content.replace(/\[h2\](.*?)\[\/h2\]/g, '<h2>$1</h2>');
+  content = content.replace(/\[h3\](.*?)\[\/h3\]/g, '<h3>$1</h3>');
   content = content.replace(/\[b\](.*?)\[\/b\]/g, '<b>$1</b>');
   content = content.replace(/\[u\](.*?)\[\/u\]/g, '<u>$1</u>');
   content = content.replace(/\[i\](.*?)\[\/i\]/g, '<i>$1</i>');

@@ -157,6 +157,16 @@ h1 {
   color: #5aa9d6;
 }
 
+h2 {
+  font-weight: 300;
+  color: #5aa9d6;
+}
+
+h3 {
+  font-weight: 200;
+  color: #5aa9d6;
+}
+
 .quote-modal {
   display: none;
   position: fixed;
