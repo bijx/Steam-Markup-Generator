@@ -89,7 +89,7 @@ document.getElementById('insertQuote').addEventListener('click', function () {
 document.getElementById('insertUrl').addEventListener('click', function () {
   const url = document.getElementById('urlInput').value;
   const linkText = document.getElementById('urlText').value;
-  const insertion = `[url=${url}] ${linkText} [/url]`;
+  const insertion = `[url=${url}]${linkText}[/url]`;
   const beforeSelection = editor.value.substring(0, editor.selectionStart);
   const afterSelection = editor.value.substring(editor.selectionEnd, editor.value.length);
   editor.value = beforeSelection + insertion + afterSelection;
