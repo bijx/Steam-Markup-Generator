@@ -22,11 +22,13 @@ A lightweight rich-text editor that enables you to format text using Steam's [cu
 - **Underline**: Ctrl + U
 - **Strike**: Ctrl + Shift + X
 - **Header**: Ctrl + Shift + H
+- **URL**: Ctrl + K
 
 ## Planned Features
 - [ ] Add remaining buttons
+- [x] Local storage saving to prevent progress loss
 - [ ] More keybinds
-- [ ] Paste in URLs
+- [x] URL support
 - [ ] Markdown to Steam Markup converter
 
 ## Feedback
