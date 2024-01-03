@@ -157,3 +157,30 @@ editor.addEventListener('keydown', function (e) {
     }
   }
 });
+
+
+/* LocalStorage */
+
+// Save to localStorage
+function saveTextAsLocalStorage() {
+  const text = editor.value;
+  localStorage.setItem("markupText", text);
+}
+
+// Load from localStorage
+function loadTextFromLocalStorage() {
+  const savedText = localStorage.getItem("markupText");
+  if (savedText) {
+      editor.value = savedText;
+      updatePreview();
+  }
+}
+
+// Event listeners
+editor.addEventListener('input', function () {
+  saveTextAsLocalStorage();  
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  loadTextFromLocalStorage();
+});
