@@ -35,6 +35,7 @@
             <button data-tag="i">I<span class="tooltip">Ctrl + I</span></button>
             <button data-tag="strike">Strike<span class="tooltip">Ctrl + Shift + X</span></button>
             <button data-tag="spoiler">Spoiler</button>
+            <button data-tag="url">URL<span class="tooltip">Ctrl + K</span></button>
             <button data-tag="noparse">Noparse</button>
             <button data-tag="hr">HR</button>
             <button data-tag="code">Code</button>
@@ -56,6 +57,20 @@
             <textarea id="quoteText" placeholder="Enter the text you want to quote"></textarea>
     
             <button id="insertQuote">Insert</button>
+        </div>
+    </div>
+    <div id="urlModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="document.getElementById('urlModal').style.display='none'">&times;</span>
+            <h2>Insert URL</h2>
+            
+            <label for="urlInput">URL:</label>
+            <input type="url" id="urlInput" required>
+    
+            <label for="urlText">Link Text:</label>
+            <textarea id="urlText" rows="4"></textarea>
+    
+            <button id="insertUrl">Insert URL</button>
         </div>
     </div>
 

@@ -27,6 +27,7 @@ function updatePreview() {
     /\[quote=(.*?)\](.*?)\[\/quote\]/g,
     '<div class="quote-box"><p class="quote-author">Originally posted by <i>$1</i>:</p><p>$2</p></div>'
   );
+  content = content.replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '<a href="$1" target="_blank">$2</a>');
 
   preview.innerHTML = content;
 }
@@ -44,6 +45,13 @@ buttons.forEach((button) => {
       );
       document.getElementById('quoteText').value = selectedText;
       document.getElementById('quoteModal').style.display = 'flex';
+      return;
+    }
+
+    if (tag === 'url') {
+      const selectedText = editor.value.substring(editor.selectionStart, editor.selectionEnd);
+      document.getElementById('urlText').value = selectedText;
+      document.getElementById('urlModal').style.display = 'flex';
       return;
     }
 
@@ -78,6 +86,17 @@ document.getElementById('insertQuote').addEventListener('click', function () {
   updatePreview();
 });
 
+document.getElementById('insertUrl').addEventListener('click', function () {
+  const url = document.getElementById('urlInput').value;
+  const linkText = document.getElementById('urlText').value;
+  const insertion = `[url=${url}] ${linkText} [/url]`;
+  const beforeSelection = editor.value.substring(0, editor.selectionStart);
+  const afterSelection = editor.value.substring(editor.selectionEnd, editor.value.length);
+  editor.value = beforeSelection + insertion + afterSelection;
+  document.getElementById('urlModal').style.display = 'none';
+  updatePreview();
+});
+
 editor.addEventListener('keydown', function (e) {
   if (e.ctrlKey) {
     // Check if the Control key is pressed
@@ -96,6 +115,13 @@ editor.addEventListener('keydown', function (e) {
       case 'U':
         tag = 'u';
         break;
+      case 'k':
+      case 'K':
+        const selectedText = editor.value.substring(editor.selectionStart, editor.selectionEnd);
+        document.getElementById('urlText').value = selectedText;
+        document.getElementById('urlModal').style.display = 'flex';
+        e.preventDefault();
+        return;
     }
 
     if (e.shiftKey) {
