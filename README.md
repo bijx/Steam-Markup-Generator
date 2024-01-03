@@ -25,10 +25,10 @@ A lightweight rich-text editor that enables you to format text using Steam's [cu
 - **URL**: Ctrl + K
 
 ## Planned Features
-- [ ] Add remaining buttons
 - [x] Local storage saving to prevent progress loss
-- [ ] More keybinds
 - [x] URL support
+- [ ] Add remaining buttons
+- [ ] More keybinds
 - [ ] Markdown to Steam Markup converter
 
 ## Feedback
