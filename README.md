@@ -38,4 +38,3 @@ This is a beta version of the editor. If you encounter any issues or have sugges
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
- 
